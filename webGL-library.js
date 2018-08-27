@@ -48,7 +48,6 @@ WebGLJs = {
             let shader = this.gl.createShader(obj.type);
             this.gl.shaderSource(shader,
                     document.getElementById(obj.id).text);
-            console.log(document.getElementById(obj.id).text);
             this.gl.compileShader(shader);
 
             // Store the shader with the shaders
@@ -88,20 +87,19 @@ WebGLJs = {
     },
 
     // We receive the buffer to send, as well as the array
-    draw:function(bufferId,typedArray,num){
+    draw:function(bufferId,typedArray,num,drawType=this.gl.TRIANGLE_STRIP){
 
         /* Requires the buffer system, which is registered 
          * apart, which are created, 
          * binded and then the data is buffered through */ 
 
         let buffer = this.buffers[bufferId];
-        console.log(buffer)
         this.gl.bindBuffer(this.gl.ARRAY_BUFFER,buffer);
         this.gl.bufferData(this.gl.ARRAY_BUFFER,typedArray,
                 this.gl.STATIC_DRAW);
 
         // After putting the data into the buffer we draw
-        this.gl.drawArrays(this.gl.TRIANGLE_STRIP,0,num);
+        this.gl.drawArrays(drawType,0,num);
 
     }
 }
