@@ -16,11 +16,14 @@ document.addEventListener("DOMContentLoaded",function(event){
         type:WebGLJs.gl.FLOAT
     }; 
     var cube = [
-        -.5, -.5,
-        -.5,  .5,
-         .5, -.5,
-         .5,  .5
+        -1, -1,
+         1, -1,
+        -1,  1,
+         1,  1
     ];
+    //scale to 1/4
+    cube = cube.map((x)=>x/4.0);
+    cube = cube.map((x)=>x-.5);
     WebGLJs.registerShaders([vertexShader,pixelShader]);
     WebGLJs.registerBuffers([positionBuffer]);
     WebGLJs.draw("position",new Float32Array(cube),4);
