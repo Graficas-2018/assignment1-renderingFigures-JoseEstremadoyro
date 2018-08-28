@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded",function(event){
     function getCube(scale={x:1,y:1},translate={x:0,y:0}){
 
         // Creation of the base matrix to be multiplied
-        var cube = [
+        var square = [
             [-1, -1],
             [ 1, -1],
             [-1,  1],
             [ 1,  1]
         ];
-        return applyTransformations(cube,scale,translate)
+        return applyTransformations(square,scale,translate)
     }
 
     function getTriangle(scale={x:1,y:1},translate={x:0,y:0}){
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded",function(event){
     }; 
 
     //scale to 1/4 and move -.5, and +.5
-    let cube = getCube(
+    let square = getCube(
         {x:4.0, y:4.0},
         {x:-0.5, y:0.5}
     );
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded",function(event){
     console.log(pacman);
     WebGLJs.registerShaders([vertexShader,pixelShader]);
     WebGLJs.registerBuffers([positionBuffer]);
-    WebGLJs.draw("position",new Float32Array(cube),4);
+    WebGLJs.draw("position",new Float32Array(square),4);
     WebGLJs.draw("position",new Float32Array(triangle),3);
     WebGLJs.draw("position",new Float32Array(diamond),5);
     WebGLJs.draw("position",new Float32Array(pacman),pacman.length/2,WebGLJs.gl.TRIANGLE_FAN);
