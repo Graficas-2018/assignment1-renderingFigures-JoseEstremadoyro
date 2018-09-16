@@ -12,6 +12,6 @@ Rubric:
 3. Correct transformations were performed for each figure. *Complete*
 4. The figures were rendered as in the Figure. *Complete*
 
-**Grade: 100**
+**Grade: 110 - 77 for being late**
 
 *Add a symbolic link or a shortcut to the libs library to get the assignment to work.*
